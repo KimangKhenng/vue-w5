@@ -1,18 +1,23 @@
 <template>
-  <p>{{ message }}</p>
-  <simple-component/>
-  <clock />
-  <user-list />
+  <nav-bar />
+  <router-view />
+  <my-footer />
 </template>
 <script>
 import SimpleComponent from "@/components/SimpleComponent.vue"
 import Clock from "@/components/Clock.vue";
 import UserList from "@/components/UserList.vue";
+import NavBar from "@/components/NavBar.vue";
+import HeroLanding from "@/components/HeroLanding.vue";
+import MyFooter from "@/components/MyFooter.vue";
 export default {
   components: {
     SimpleComponent,
     Clock,
-    UserList
+    UserList,
+    NavBar,
+    HeroLanding,
+    MyFooter
   },
   data() {
     return {
