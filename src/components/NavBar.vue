@@ -30,7 +30,9 @@
                         </li>
 
                         <li>
-                            <a class="text-gray-500 transition hover:text-gray-500/75" href="#"> Services </a>
+                            <router-link exact class="text-gray-500 transition hover:text-gray-500/75" to="/dashboard">
+                                Dashboard
+                            </router-link>
                         </li>
 
                         <li>
@@ -45,6 +47,7 @@
 
                 <div class="flex items-center gap-4">
                     <div class="sm:flex sm:gap-4">
+                        <p class="font-bold text-2xl text-red-500">{{ doubleCount }}</p>
                         <a class="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
                             href="#">
                             Login
@@ -69,3 +72,12 @@
         </div>
     </header>
 </template>
+<script>
+import { mapState } from 'pinia';
+import { useCounterStore } from '@/stores/counter';
+export default {
+    computed: {
+        ...mapState(useCounterStore, ['count', 'doubleCount'])
+    }
+}
+</script>
