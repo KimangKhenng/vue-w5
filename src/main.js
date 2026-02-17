@@ -3,8 +3,11 @@ import App from './App.vue'
 import "./assets/main.css"
 import router from './router/router'
 import { createPinia } from 'pinia'
-
+import { loggerPlugin } from './plugins/loggerPlugin'
+import { persistPlugin } from './plugins/persistPlugin'
 const pinia = createPinia()
+pinia.use(loggerPlugin)
+pinia.use(persistPlugin)
 const app = createApp(App)
 
 app.use(router)
