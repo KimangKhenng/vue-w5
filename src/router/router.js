@@ -9,6 +9,7 @@ import DashboardLayout from '@/view/DashboardLayout.vue'
 import OverviewView from '@/components/OverviewView.vue'
 import UserView from '@/components/UserView.vue'
 import SettingView from '@/components/SettingView.vue'
+import PostList from '@/view/PostList.vue'
 
 const router = createRouter({
     linkActiveClass: 'font-bold',
@@ -22,6 +23,10 @@ const router = createRouter({
             meta: {
                 title: 'Home'
             }
+        },
+        {
+            path: '/post',
+            component: PostList
         },
         {
             path: '/about',

@@ -27,6 +27,7 @@
     </div>
 </template>
 <script>
+import axios from 'axios';
 export default {
     data() {
         return {
@@ -34,9 +35,22 @@ export default {
         }
     },
     async created() {
-        const response = await fetch('https://jsonplaceholder.typicode.com/photos')
-        this.photos = await response.json()
-        console.log(this.photos)
+        // fetch('https://jsonplaceholder.typicode.com/photos')
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         this.photos = data
+        //         console.log("Hello Data")
+        //         console.log(this.photos)
+        //     })
+        try {
+            const response = await axios.get('https://jsonplaceholder.typicode.com/photos')
+            this.photos = response.data
+        } catch (err) {
+            console.log(err)
+        }
+
     }
+    // Promise
+    // Code
 }
 </script>
