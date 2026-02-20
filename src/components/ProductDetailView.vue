@@ -28,7 +28,7 @@
     </div>
 </template>
 
-<script>
+<!-- <script>
 export default {
     name: 'ProductDetailView',
     data() {
@@ -75,4 +75,50 @@ export default {
         }
     }
 }
+</script> -->
+<script setup>
+import { ref, reactive, computed, onMounted, watch } from "vue"
+import { useRoute, useRouter } from "vue-router"
+
+// ref for primive (simple type: number, boolean, string)
+const product = ref(null)
+const loading = ref(true)
+const route = useRoute()
+const router = useRouter()
+// reactive for object and array
+const allProducts = reactive([
+    { id: 1, name: 'Laptop', price: 999, emoji: '💻', description: 'High-performance laptop' },
+    { id: 2, name: 'Phone', price: 699, emoji: '📱', description: 'Latest smartphone' },
+    { id: 3, name: 'Headphones', price: 199, emoji: '🎧', description: 'Noise-cancelling' }
+])
+
+const productId = computed(() => {
+    return Number(route.params.id)
+})
+
+const loadProduct = () => {
+    loading.value = true
+    console.log(allProducts)
+
+    // Simulate API delay
+    setTimeout(() => {
+        product.value = allProducts.find(p => p.id === productId.value)
+        loading.value = false
+    }, 500)
+}
+
+const goBack = () => {
+    router.push('/products')
+}
+
+onMounted(() => {
+    console.log(route.params.id)
+    loadProduct()
+})
+
+watch(productId, (newValue) => {
+    console.log('Product ID changed to:', newValue)
+    loadProduct()
+})
+
 </script>

@@ -9,7 +9,7 @@
         </ul>
     </div>
 </template>
-<script>
+<!-- <script>
 export default {
     data() {
         return {
@@ -31,4 +31,17 @@ export default {
         }
     }
 }
+</script> -->
+<script setup>
+import { ref, onMounted } from 'vue';
+import { useFetch } from '@/composables/useFetch';
+
+const users = ref([]);
+const { fetchData, data, error, loading } = useFetch('https://jsonplaceholder.typicode.com/users');
+
+onMounted(async () => {
+    await fetchData()
+    users.value = data.value;
+})
+
 </script>
