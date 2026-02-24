@@ -4,7 +4,7 @@
             <div class="divide-y divide-gray-200 rounded-2xl border border-gray-200 shadow-xs">
                 <div class="p-6 sm:px-8">
                     <h2 class="text-lg font-medium text-gray-900">
-                        Starter
+                        {{ $t('message.starter') }}
                         <span class="sr-only">Plan</span>
                     </h2>
 
@@ -88,7 +88,7 @@
             <div class="divide-y divide-gray-200 rounded-2xl border border-gray-200 shadow-xs">
                 <div class="p-6 sm:px-8">
                     <h2 class="text-lg font-medium text-gray-900">
-                        Pro
+                        {{ $t('message.pro') }}
                         <span class="sr-only">Plan</span>
                     </h2>
 
@@ -172,7 +172,7 @@
             <div class="divide-y divide-gray-200 rounded-2xl border border-gray-200 shadow-xs">
                 <div class="p-6 sm:px-8">
                     <h2 class="text-lg font-medium text-gray-900">
-                        Enterprise
+                        {{ $t('message.enterprise') }}
                         <span class="sr-only">Plan</span>
                     </h2>
 

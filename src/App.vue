@@ -1,6 +1,6 @@
 <template>
   <nav-bar />
-  <user-list />
+  <!-- <user-list /> -->
   <router-view />
   <my-footer />
 </template>

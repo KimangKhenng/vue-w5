@@ -14,33 +14,38 @@
                 <nav aria-label="Global" class="hidden md:block">
                     <ul class="flex items-center gap-6 text-sm">
                         <li>
-                            <router-link class="text-gray-500 transition hover:text-gray-500/75" to="/about"> About
+                            <router-link class="text-gray-500 transition hover:text-gray-500/75" to="/about"> {{
+                                $t('nav.about') }}
                             </router-link>
                         </li>
 
                         <li>
                             <router-link class="text-gray-500 transition hover:text-gray-500/75" to="/products">
-                                Products
+                                {{ $t('nav.products') }}
                             </router-link>
                         </li>
 
                         <li>
-                            <router-link class="text-gray-500 transition hover:text-gray-500/75" to="/photos"> Photos
+                            <router-link class="text-gray-500 transition hover:text-gray-500/75" to="/photos"> {{
+                                $t('nav.photos') }}
                             </router-link>
                         </li>
 
                         <li>
                             <router-link exact class="text-gray-500 transition hover:text-gray-500/75" to="/dashboard">
-                                Dashboard
+                                {{ $t('nav.dashboard') }}
                             </router-link>
                         </li>
 
                         <li>
-                            <a class="text-gray-500 transition hover:text-gray-500/75" href="#"> Projects </a>
+                            <a class="text-gray-500 transition hover:text-gray-500/75" href="#"> {{ $t('nav.projects')
+                                }}
+                            </a>
                         </li>
 
                         <li>
-                            <router-link class="text-gray-500 transition hover:text-gray-500/75" to="post"> Posts
+                            <router-link class="text-gray-500 transition hover:text-gray-500/75" to="post"> {{
+                                $t('nav.posts') }}
                             </router-link>
                         </li>
                     </ul>
@@ -49,6 +54,16 @@
                 <div class="flex items-center gap-4">
                     <div class="sm:flex sm:gap-4">
                         <p class="font-bold text-2xl text-red-500">{{ doubleCount }}</p>
+                        <button v-if="locale == 'en'" @click="changeLanguage('km')"
+                            class="block rounded-md bg-red-500 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-blue-700 hover:cursor-pointer"
+                            href="#">
+                            ខ្មែរ
+                        </button>
+                        <button v-if="locale == 'km'" @click="changeLanguage('en')"
+                            class="block rounded-md bg-red-500 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-blue-700 hover:cursor-pointer"
+                            href="#">
+                            English
+                        </button>
                         <a class="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
                             href="#">
                             Login
@@ -73,12 +88,16 @@
         </div>
     </header>
 </template>
-<script>
-import { mapState } from 'pinia';
+<script setup>
 import { useCounterStore } from '@/stores/counter';
-export default {
-    computed: {
-        ...mapState(useCounterStore, ['count', 'doubleCount'])
-    }
-}
+import { useI18n } from 'vue-i18n';
+
+const { locale, availableLocales } = useI18n();
+const { count, doubleCount } = useCounterStore()
+
+const changeLanguage = (lang) => {
+    locale.value = lang;
+    localStorage.setItem('language', lang);
+};
+
 </script>
