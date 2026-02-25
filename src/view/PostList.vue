@@ -1,6 +1,6 @@
 <template>
     <div class="container mx-auto px-4 py-8">
-        <h1 class="text-3xl font-bold mb-6 text-gray-800">Blog Posts</h1>
+        <h1 class="text-3xl font-bold mb-6 text-gray-800 font-display">{{ $t('message.blog_post') }}</h1>
 
         <!-- Loading State -->
         <div v-if="loading" class="flex flex-col items-center justify-center py-12">

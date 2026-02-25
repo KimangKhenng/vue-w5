@@ -8,7 +8,8 @@ export default {
         pro: 'Pro',
         enterprise: 'សហគ្រាស',
         heroText: 'យល់ពីរបៀបអ្នកប្រើប្រាស់ និង {number} ការសន្ននា',
-        greeting: '@:message.hello, តើអ្នកសុខសប្បាយទេ?'
+        greeting: '@:message.hello, តើអ្នកសុខសប្បាយទេ?',
+        blog_post: "អត្ថបទ"
     },
     nav: {
         products: 'ផលិតផល',

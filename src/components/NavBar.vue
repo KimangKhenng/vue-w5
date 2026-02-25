@@ -1,5 +1,5 @@
 <template>
-    <header class="bg-white">
+    <header class="bg-white dark:bg-aba">
         <div class="mx-auto flex h-16 max-w-7xl items-center gap-8 px-4 sm:px-6 lg:px-8">
             <router-link class="block text-teal-600" to="/">
                 <span class="sr-only">Home</span>
@@ -14,38 +14,44 @@
                 <nav aria-label="Global" class="hidden md:block">
                     <ul class="flex items-center gap-6 text-sm">
                         <li>
-                            <router-link class="text-gray-500 transition hover:text-gray-500/75" to="/about"> {{
-                                $t('nav.about') }}
+                            <router-link class="text-gray-500 dark:text-white transition hover:text-gray-500/75"
+                                to="/about"> {{
+                                    $t('nav.about') }}
                             </router-link>
                         </li>
 
                         <li>
-                            <router-link class="text-gray-500 transition hover:text-gray-500/75" to="/products">
+                            <router-link class="text-gray-500 dark:text-white transition hover:text-gray-500/75"
+                                to="/products">
                                 {{ $t('nav.products') }}
                             </router-link>
                         </li>
 
                         <li>
-                            <router-link class="text-gray-500 transition hover:text-gray-500/75" to="/photos"> {{
-                                $t('nav.photos') }}
+                            <router-link class="text-gray-500 dark:text-white transition hover:text-gray-500/75"
+                                to="/photos"> {{
+                                    $t('nav.photos') }}
                             </router-link>
                         </li>
 
                         <li>
-                            <router-link exact class="text-gray-500 transition hover:text-gray-500/75" to="/dashboard">
+                            <router-link exact class="text-gray-500 dark:text-white transition hover:text-gray-500/75"
+                                to="/dashboard">
                                 {{ $t('nav.dashboard') }}
                             </router-link>
                         </li>
 
                         <li>
-                            <a class="text-gray-500 transition hover:text-gray-500/75" href="#"> {{ $t('nav.projects')
+                            <a class="text-gray-500 dark:text-white transition hover:text-gray-500/75" href="#"> {{
+                                $t('nav.projects')
                                 }}
                             </a>
                         </li>
 
                         <li>
-                            <router-link class="text-gray-500 transition hover:text-gray-500/75" to="post"> {{
-                                $t('nav.posts') }}
+                            <router-link class="text-gray-500 dark:text-white transition hover:text-gray-500/75"
+                                to="post"> {{
+                                    $t('nav.posts') }}
                             </router-link>
                         </li>
                     </ul>
@@ -55,23 +61,24 @@
                     <div class="sm:flex sm:gap-4">
                         <p class="font-bold text-2xl text-red-500">{{ doubleCount }}</p>
                         <button v-if="locale == 'en'" @click="changeLanguage('km')"
-                            class="block rounded-md bg-red-500 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-blue-700 hover:cursor-pointer"
+                            class="block rounded-md bg-tfd px-5 py-2.5 text-sm font-medium text-white transition hover:bg-blue-700 hover:cursor-pointer"
                             href="#">
                             ខ្មែរ
                         </button>
                         <button v-if="locale == 'km'" @click="changeLanguage('en')"
-                            class="block rounded-md bg-red-500 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-blue-700 hover:cursor-pointer"
+                            class="block rounded-md bg-tfd px-5 py-2.5 text-sm font-medium text-white transition hover:bg-blue-700 hover:cursor-pointer"
                             href="#">
                             English
                         </button>
-                        <a class="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
+                        <a class="block rounded-md bg-aba px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
                             href="#">
                             Login
                         </a>
 
-                        <a class="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 transition hover:text-teal-600/75 sm:block"
+                        <a @click="toggleDark()"
+                            class="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-aba transition hover:text-teal-600/75 sm:block"
                             href="#">
-                            Register
+                            Toggle: {{ isDark ? '🌙' : '☀️' }}
                         </a>
                     </div>
 
@@ -91,6 +98,12 @@
 <script setup>
 import { useCounterStore } from '@/stores/counter';
 import { useI18n } from 'vue-i18n';
+import { ref } from "vue"
+
+import { useDark, useToggle } from '@vueuse/core'
+
+const isDark = useDark()
+const toggleDark = useToggle(isDark)
 
 const { locale, availableLocales } = useI18n();
 const { count, doubleCount } = useCounterStore()
@@ -99,5 +112,6 @@ const changeLanguage = (lang) => {
     locale.value = lang;
     localStorage.setItem('language', lang);
 };
+
 
 </script>

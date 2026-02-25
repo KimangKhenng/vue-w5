@@ -1,1 +1,35 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&family=Koulen&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap'); */
 @import "tailwindcss";
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
+
+@theme {
+    --color-primary-50: #f0f9ff;
+    --color-primary-100: #e0f2fe;
+    --color-primary-200: #bae6fd;
+    --color-primary-300: #7dd3fc;
+    --color-primary-400: #38bdf8;
+    --color-primary-500: #0ea5e9;
+    --color-primary-600: #0284c7;
+    --color-primary-700: #0369a1;
+    --color-primary-800: #075985;
+    --color-primary-900: #0c4a6e;
+
+    --color-tfd: #e74c3c;
+    --color-aba: #0b5b7a;
+
+    /* Default font (tailwind rendering) */
+    --font-sans: "Source Serif 4", "Kantumruy Pro", ui-sans-serif, system-ui, sans-serif;
+    --font-display: "Playfair Display", "Koulen", ui-sans-serif, system-ui, sans-serif;
+
+
+}
+
+@layer components {
+    .card {
+        background-color: var(--color-white);
+        border-radius: var(--radius-lg);
+        padding: calc(var(--spacing-6) * 1px);
+        box-shadow: var(--shadow-xl);
+    }
+}

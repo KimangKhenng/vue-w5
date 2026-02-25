@@ -8,7 +8,8 @@ export default {
         pro: 'Pro',
         enterprise: 'Enterprise',
         heroText: 'Understand user flow and {number} conversions',
-        greeting: '@:message.hello, How are you?'
+        greeting: '@:message.hello, How are you?',
+        blog_post: "Blog Post"
     },
     nav: {
         products: 'Products',
