@@ -44,7 +44,7 @@
                         <li>
                             <a class="text-gray-500 dark:text-white transition hover:text-gray-500/75" href="#"> {{
                                 $t('nav.projects')
-                                }}
+                            }}
                             </a>
                         </li>
 
@@ -59,7 +59,7 @@
 
                 <div class="flex items-center gap-4">
                     <div class="sm:flex sm:gap-4">
-                        <p class="font-bold text-2xl text-red-500">{{ doubleCount }}</p>
+                        <!-- <p class="font-bold text-2xl text-red-500">{{ doubleCount }}</p> -->
                         <button v-if="locale == 'en'" @click="changeLanguage('km')"
                             class="block rounded-md bg-tfd px-5 py-2.5 text-sm font-medium text-white transition hover:bg-blue-700 hover:cursor-pointer"
                             href="#">
