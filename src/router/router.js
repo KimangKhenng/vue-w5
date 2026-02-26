@@ -112,15 +112,15 @@ router.beforeEach((to, from, next) => {
     // Always call next() to continue navigation
     next()
 })
-router.beforeResolve((to, from, next) => {
-    console.log('2. Global beforeResolve')
-    next()
-})
+// router.beforeResolve((to, from, next) => {
+//     console.log('2. Global beforeResolve')
+//     next()
+// })
 
-router.afterEach((to, from) => {
-    // console.log('3. Global afterEach')
-    // initFlowbite()
-})
+// router.afterEach((to, from) => {
+//     // console.log('3. Global afterEach')
+//     // initFlowbite()
+// })
 
 
 export default router
