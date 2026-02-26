@@ -1,16 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '@/view/Home.vue'
-import About from '@/view/About.vue'
-import ProductDetailView from '@/components/ProductDetailView.vue'
-import ProductsView from '@/view/ProductsView.vue'
-import PhotoGallery from '@/view/PhotoGallery.vue'
-import NotFound from '@/view/NotFound.vue'
-import DashboardLayout from '@/view/DashboardLayout.vue'
-import OverviewView from '@/components/OverviewView.vue'
-import UserView from '@/components/UserView.vue'
-import SettingView from '@/components/SettingView.vue'
-import PostList from '@/view/PostList.vue'
-
+const Home = () => import('@/view/Home.vue')
+const About = () => import('@/view/About.vue')
+const ProductDetailView = () => import('@/components/ProductDetailView.vue')
+const ProductsView = () => import('@/view/ProductsView.vue')
+const PhotoGallery = () => import('@/view/PhotoGallery.vue')
+const NotFound = () => import('@/view/NotFound.vue')
+const DashboardLayout = () => import('@/view/DashboardLayout.vue')
+const OverviewView = () => import('@/components/OverviewView.vue')
+const UserView = () => import('@/components/UserView.vue')
+const SettingView = () => import('@/components/SettingView.vue')
+const PostList = () => import('@/view/PostList.vue')
+// import { initFlowbite } from 'flowbite'
 const router = createRouter({
     linkActiveClass: 'font-bold',
     linkExactActiveClass: 'font-bold',
@@ -118,7 +118,9 @@ router.beforeResolve((to, from, next) => {
 })
 
 router.afterEach((to, from) => {
-    console.log('3. Global afterEach')
+    // console.log('3. Global afterEach')
+    // initFlowbite()
 })
+
 
 export default router

@@ -11,6 +11,7 @@ import UserList from "@/components/UserList.vue";
 import NavBar from "@/components/NavBar.vue";
 import HeroLanding from "@/components/HeroLanding.vue";
 import MyFooter from "@/components/MyFooter.vue";
+// import { initFlowbite } from 'flowbite'
 export default {
   components: {
     SimpleComponent,
